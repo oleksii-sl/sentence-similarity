@@ -1,0 +1,47 @@
+.App {
+  text-align: center;
+}
+
+.search-widget {
+  padding: 0.5em;
+
+  button, input {
+    font-size: 1rem;
+    vertical-align: unset;
+    line-height: 1.5;
+    padding: 0.375rem 0.75rem;
+    box-sizing: content-box;
+  }
+
+  button {
+    border-radius: 0;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  input {
+    border: 1px solid #007bff;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.blog-post-search-result {
+  background: aliceblue;
+}
+
+.blog-post-sentence {
+  &:after {
+    content: ' ';
+  }
+  &:hover {
+    background: skyblue;
+    cursor: pointer;
+  }
+}
+.modal-dialog.w75 {
+  width: 75%;
+  max-width: none!important;
+}

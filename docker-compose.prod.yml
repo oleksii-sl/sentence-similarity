@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+
+  frontend-prod:
+    container_name: frontend-prod
+    build:
+      context: "./frontend"
+      dockerfile: Dockerfile-prod
+    ports:
+      - '80:80'
+    depends_on:
+      - api
+  api:
+    command: "gunicorn -w 1 -b 0.0.0.0:5000 'app:create_app()' -t 60 --access-logfile '-'"
+    environment:
+      - FLASK_ENV=production

@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+
+  api:
+    container_name: api
+    build:
+      context: "./api"
+      dockerfile: Dockerfile
+    environment:
+      - FLASK_APP=/app/app
+      - FLASK_ENV=development
+      - ELASTICSEARCH_HOST=http://elasticsearch:9200
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - './api:/app'
+    ports:
+      - '5000:5000'
+    depends_on:
+      - elasticsearch
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.4.2
+    container_name: elasticsearch
+    environment:
+      - "xpack.security.enabled=false"
+      - "discovery.type=single-node"
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+volumes:
+  esdata:
+    driver: local

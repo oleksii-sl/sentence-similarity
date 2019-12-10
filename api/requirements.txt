@@ -1,0 +1,7 @@
+Flask==1.1.1
+elasticsearch_dsl==7.1.0
+click==7.0
+xmltodict==0.12.0
+pylama==7.7.1
+spacy==2.2.3
+gunicorn==20.0.4
