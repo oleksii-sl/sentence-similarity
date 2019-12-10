@@ -6,7 +6,7 @@ Solution can be easily adapted for any other text2vec provider (word2vec, GloVe,
 
 ---
 
-###Setting up
+### Setting up
 
 Run this on host machine `sudo sysctl -w vm.max_map_count=262144`
 it sets max virtual mem to higher value, required by elasticsearch
